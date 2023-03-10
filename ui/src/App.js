@@ -24,29 +24,30 @@ export default function App() {
                 user: {avatar: 'static/user-80.png'},
                 src: "user"
             });
-            // setTyping(false);
-
-            axios.post('/v1/chat/completions', {
-                msg: val, userId: getTempId()
-            })
-                .then(function (response) {
-                    console.log('请求成功');
-                    console.log(response);
-                    appendMsg({
-                        type: "text",
-                        content: {text: response.data.choices[0].message.content},
-                        user: {avatar: "static/ChatGPT_logo.png"},
-                        src: "chatGPT"
-                    });
+            setTimeout(() => {
+                setTyping(true);
+                axios.post('/v1/chat/completions', {
+                    msg: val, userId: getTempId()
                 })
-                .catch(function (error) {
-                    appendMsg({
-                        type: "text", content: {text: error.toString()},
-                        user: {avatar: "static/ChatGPT_logo.png"},
-                        src: "chatGPT"
+                    .then(function (response) {
+                        console.log('请求成功');
+                        console.log(response);
+                        appendMsg({
+                            type: "text",
+                            content: {text: response.data.choices[0].message.content},
+                            user: {avatar: "static/ChatGPT_logo.png"},
+                            src: "chatGPT"
+                        });
+                    })
+                    .catch(function (error) {
+                        appendMsg({
+                            type: "text", content: {text: error.toString()},
+                            user: {avatar: "static/ChatGPT_logo.png"},
+                            src: "chatGPT"
+                        });
+                        console.log(error);
                     });
-                    console.log(error);
-                });
+            }, 10);
         }
     }
 
