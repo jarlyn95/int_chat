@@ -201,45 +201,17 @@ export const Chat = React.forwardRef<HTMLDivElement, ChatProps>((props, ref) => 
     <LocaleProvider locale={locale} locales={locales}>
       <div className="ChatApp" ref={ref}>
         {renderNavbar ? renderNavbar() : navbar && <Navbar {...navbar} />}
-          <div className={"MiddleDiv"}>
-              <MessageContainer
-                  ref={messagesRef}
-                  loadMoreText={loadMoreText}
-                  messages={messages}
-                  renderBeforeMessageList={renderBeforeMessageList}
-                  renderMessageContent={renderMessageContent}
-                  onRefresh={onRefresh}
-                  onScroll={onScroll}
-                  onBackBottomShow={onBackBottomShow}
-                  onBackBottomClick={onBackBottomClick}
-                  tabIndex={0}
-              />
-              <MessageContainer
-                  ref={messagesRef}
-                  loadMoreText={loadMoreText}
-                  messages={messages}
-                  renderBeforeMessageList={renderBeforeMessageList}
-                  renderMessageContent={renderMessageContent}
-                  onRefresh={onRefresh}
-                  onScroll={onScroll}
-                  onBackBottomShow={onBackBottomShow}
-                  onBackBottomClick={onBackBottomClick}
-                  tabIndex={1}
-              />
-              <MessageContainer
-                  ref={messagesRef}
-                  loadMoreText={loadMoreText}
-                  messages={messages}
-                  renderBeforeMessageList={renderBeforeMessageList}
-                  renderMessageContent={renderMessageContent}
-                  onRefresh={onRefresh}
-                  onScroll={onScroll}
-                  onBackBottomShow={onBackBottomShow}
-                  onBackBottomClick={onBackBottomClick}
-                  tabIndex={2}
-              />
-          </div>
-
+        <MessageContainer
+          ref={messagesRef}
+          loadMoreText={loadMoreText}
+          messages={messages}
+          renderBeforeMessageList={renderBeforeMessageList}
+          renderMessageContent={renderMessageContent}
+          onRefresh={onRefresh}
+          onScroll={onScroll}
+          onBackBottomShow={onBackBottomShow}
+          onBackBottomClick={onBackBottomClick}
+        />
         <div className="ChatFooter">
           {renderQuickReplies ? (
             renderQuickReplies()

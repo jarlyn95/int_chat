@@ -1,5 +1,5 @@
 #!/bin/bash
-ps aux |grep 'gunicorn chat:app' | grep -v 'grep' | grep -v PPID |  awk '{print $2}'|xargs kill -9
+ps aux |grep 'gunicorn chat:app' | grep 5000 | grep -v 'grep' | grep -v PPID |  awk '{print $2}'|xargs kill -9
 
 #PROC_NAME="gunicorn chat:app"
 #echo "pid_kill进程名：$PROC_NAME"

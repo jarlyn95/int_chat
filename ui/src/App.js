@@ -24,12 +24,6 @@ export default function App() {
                 user: {avatar: 'static/user-80.png'},
                 src: "user"
             });
-            appendMsg({
-                type: "text", content: {text: "敬请期待百度文心一言开放API……"}, position: "right",
-                user: {avatar: 'static/baidu.svg'},
-                src: "baidu"
-            });
-
             // setTyping(false);
 
             axios.post('/v1/chat/completions', {

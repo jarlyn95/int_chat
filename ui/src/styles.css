@@ -2076,9 +2076,11 @@ button.ListItem:active {
   margin-left: 6px;
 }
 .MessageContainer {
-  width: 33.333%;
-  /*border-color: #62d957;*/
-  border: 1px dashed gray;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }
 .MiddleDiv{
   /*position: relative;*/

@@ -18,7 +18,6 @@ export interface MessageContainerProps {
   renderBeforeMessageList?: () => React.ReactNode;
   onBackBottomShow?: () => void;
   onBackBottomClick?: () => void;
-  tabIndex?: number;
 }
 
 export interface MessageContainerHandle {
@@ -42,7 +41,6 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
       renderMessageContent,
       onBackBottomShow,
       onBackBottomClick,
-        tabIndex
     } = props;
 
     const [showBackBottom, setShowBackBottom] = useState(false);
@@ -177,7 +175,7 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
     useImperativeHandle(ref, () => ({ ref: messagesRef, scrollToEnd }), [scrollToEnd]);
 
     return (
-      <div className="MessageContainer" ref={messagesRef} tabIndex={tabIndex}>
+      <div className="MessageContainer" ref={messagesRef} tabIndex={-1}>
         {renderBeforeMessageList && renderBeforeMessageList()}
         <PullToRefresh
           onRefresh={onRefresh}
@@ -187,7 +185,7 @@ export const MessageContainer = React.forwardRef<MessageContainerHandle, Message
         >
           <div className="MessageList">
             {messages.map((msg) => (
-              <Message {...msg} renderMessageContent={renderMessageContent} key={msg._id} tabIndex={tabIndex}/>
+              <Message {...msg} renderMessageContent={renderMessageContent} key={msg._id} />
             ))}
           </div>
         </PullToRefresh>

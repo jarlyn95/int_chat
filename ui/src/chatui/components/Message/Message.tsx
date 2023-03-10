@@ -52,9 +52,6 @@ export interface MessageProps {
    * 消息内容渲染函数
    */
   renderMessageContent?: (message: MessageProps) => React.ReactNode;
-
-  src?: string
-  tabIndex?: number
 }
 
 const Message = (props: MessageProps) => {
@@ -75,8 +72,7 @@ const Message = (props: MessageProps) => {
           <Time date={createdAt} />
         </div>
       )}
-      {msg.src === "user"  && msg.tabIndex == 1 &&
-          (<div className="Message-main">
+      <div className="Message-main">
         {isRL && avatar && <Avatar src={avatar} alt={name} url={user.url} />}
         <div className="Message-inner">
           {isRL && name && <div className="Message-author">{name}</div>}
@@ -84,33 +80,7 @@ const Message = (props: MessageProps) => {
             {type === 'typing' ? <Typing /> : renderMessageContent(msg)}
           </div>
         </div>
-      </div>)
-      }
-
-      {msg.src === "chatGPT" && msg.tabIndex == 0 &&
-          (<div className="Message-main">
-            {isRL && avatar && <Avatar src={avatar} alt={name} url={user.url} />}
-            <div className="Message-inner">
-              {isRL && name && <div className="Message-author">{name}</div>}
-              <div className="Message-content" role="alert" aria-live="assertive" aria-atomic="false">
-                {type === 'typing' ? <Typing /> : renderMessageContent(msg)}
-              </div>
-            </div>
-          </div>)
-      }
-
-      {msg.src === "baidu" && msg.tabIndex == 2 &&
-          (<div className="Message-main">
-            {isRL && avatar && <Avatar src={avatar} alt={name} url={user.url} />}
-            <div className="Message-inner">
-              {isRL && name && <div className="Message-author">{name}</div>}
-              <div className="Message-content" role="alert" aria-live="assertive" aria-atomic="false">
-                {type === 'typing' ? <Typing /> : renderMessageContent(msg)}
-              </div>
-            </div>
-          </div>)
-      }
-
+      </div>
     </div>
   );
 };
