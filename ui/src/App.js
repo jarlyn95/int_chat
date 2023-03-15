@@ -26,7 +26,7 @@ export default function App() {
             });
             setTimeout(() => {
                 setTyping(true);
-                axios.post('/v1/chat/completions', {
+                axios.post('http://35.153.232.28:5000/v1/chat/completions', {
                     msg: val, userId: getTempId()
                 })
                     .then(function (response) {

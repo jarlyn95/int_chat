@@ -4,11 +4,11 @@ import openai
 from flask_cors import CORS
 from loguru import logger
 
-app = Flask(__name__, static_folder="./ui/build/static", template_folder="./ui/build",
+app = Flask(__name__, static_folder="./docs/static", template_folder="./docs",
             root_path='.')
-# CORS(app)
+CORS(app)
 
-openai.api_key = "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"  # supply your API key however you choose
+openai.api_key = "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"  # supply your API key however you choose
 
 
 @app.route("/")
