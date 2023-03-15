@@ -2,6 +2,7 @@
 __pycache__
 *.tar.gz
 .DS_Store
+ui/build
 ui/node_modules
 ui/dist
 ui/lib
