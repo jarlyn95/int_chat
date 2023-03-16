@@ -8,6 +8,8 @@ export default function App() {
     const axios = require('axios').default;
     const [cookies, setCookie, removeCookie] = useCookies(['userId']);
     const short = require('short-uuid');
+//    axios.defaults.withCredentials=true
+//    axios.defaults.crossDomain=true
 
     function getTempId() {
         if (cookies.userId) return cookies.userId; else {
@@ -26,9 +28,16 @@ export default function App() {
             });
             setTimeout(() => {
                 setTyping(true);
-                axios.post('http://35.153.232.28:5000/v1/chat/completions', {
+                axios.post('https://bxjv506qhj.execute-api.us-east-1.amazonaws.com/v1/chat/completions',
+                {
                     msg: val, userId: getTempId()
-                })
+                },
+                {
+                headers:{"Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true}
+                }
+                )
                     .then(function (response) {
                         console.log('请求成功');
                         console.log(response);
