@@ -29,6 +29,7 @@ export default function App() {
             setTimeout(() => {
                 setTyping(true);
                 axios.post('https://bxjv506qhj.execute-api.us-east-1.amazonaws.com/v1/chat/completions',
+//                axios.post('/v1/chat/completions',
                 {
                     msg: val, userId: getTempId()
                 },
@@ -43,7 +44,7 @@ export default function App() {
                         console.log(response);
                         appendMsg({
                             type: "text",
-                            content: {text: response.data.choices[0].message.content},
+                            content: {text: response.data.content},
                             user: {avatar: "static/ChatGPT_logo.png"},
                             src: "chatGPT"
                         });
