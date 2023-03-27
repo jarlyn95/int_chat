@@ -20,4 +20,4 @@ tar --exclude=./ui/node_modules --exclude=.idea --exclude=./ui/src --exclude=./u
 --exclude=./ui/jest.setup.ts  --exclude=./ui/package.json  --exclude=./ui/yarn.lock \
 --exclude=.gitigore --exclude=.git \
 -czvf chat_app_v1.0.0.tar.gz .
-scp -i ~/Documents/keys/jarlyn.pem chat_app_v1.0.0.tar.gz ec2-user@35.153.232.28:/home/ec2-user/chat_app/v1.0.0/
+scp -i ~/Documents/keys/jarlyn.pem chat_app_v1.0.0.tar.gz ec2-user@52.91.185.210:/home/ec2-user/chat_app/v1.0.0/
