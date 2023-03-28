@@ -29,7 +29,7 @@ export default function App() {
             setTimeout(() => {
                 setTyping(true);
 //                axios.post('https://bxjv506qhj.execute-api.us-east-1.amazonaws.com/v1/chat/completions',
-                axios.post('https://service-3w2th70i-1256538555.sg.apigw.tencentcs.com/release/v1/chat/completions',
+                axios.post('https://service-i794ntfk-1256538555.sg.apigw.tencentcs.com/release/release/v1/chat/completions',
 //                axios.post('/v1/chat/completions',
                 {
                     msg: val, userId: getTempId()
