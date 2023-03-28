@@ -1,7 +1,7 @@
 # coding=utf-8
 from flask import Flask, render_template, jsonify, request
 import openai
-# from flask_cors import CORS
+from flask_cors import CORS
 from loguru import logger
 from core import Assistant, Message, get_assistant
 
@@ -9,9 +9,9 @@ from core import Assistant, Message, get_assistant
 
 app = Flask(__name__, static_folder="./docs/static", template_folder="./docs",
             root_path='.')
-# CORS(app)
+CORS(app)
 
-openai.api_key = "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"  # supply your API key however you choose
+openai.api_key = "sk-xx"  # supply your API key however you choose
 
 
 @app.route("/")
@@ -23,7 +23,7 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/v1/chat/completions', methods=["POST"])
+@app.route('/api/v1/chat/completions', methods=["POST"])
 def chat():
     msg = request.json.get("msg")
     user_id = request.json.get("userId")
@@ -44,7 +44,7 @@ def chat():
     return jsonify(ret)
 
 
-@app.route('/health', methods=["GET"])
+@app.route('/api/health', methods=["GET"])
 def health():
     return jsonify({"msg": "ok", "status": 0})
 
